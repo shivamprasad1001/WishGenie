@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Wish</title>
+    <link rel="stylesheet" href="../static/css/wish_page-styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Send Wishes the Digital Way</h1>
+        <form id="wishForm" method="POST" action="/generate">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="occasion">Occasion:</label>
+            <input type="text" id="occasion" name="occasion" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Generate Wish</button>
+        </form>
+    </div>
+    
+    <script>
+        document.getElementById('wishForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(this);
+            fetch('/generate', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.link) {
+                    alert("Your generated link: " + data.link);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Wish</title>
+</head>
+<body>
+    <h1>Create a Birthday Wish</h1>
+    <form id="wishForm" method="POST" action="/generate">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="occasion">Occasion:</label><br>
+        <input type="text" id="occasion" name="occasion" required><br><br>
+        
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" required></textarea><br><br>
+        
+        <button type="submit">Generate Wish</button>
+    </form>
+    
+    <script>
+        // If you want to submit data using JavaScript, you can also do this with AJAX (optional).
+        document.getElementById('wishForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            
+            const formData = new FormData(this);
+            fetch('/generate', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Show the link returned by the backend
+                if (data.link) {
+                    alert("Your generated link: " + data.link);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html> -->
+

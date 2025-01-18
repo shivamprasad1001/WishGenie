@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wish Page</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+    <div class="wish-container">
+        <h1>{{ occasion }}, {{ name }}!</h1>
+        <p class="message">{{ message }} {{ name }}</p>
+        <div id="countdown"></div>
+
+       
+        <button id="shareButton" class="share-btn">Share</button>
+    </div>
+
+    <script>
+        const shareButton = document.getElementById("shareButton");
+
+        shareButton.addEventListener("click", async () => {
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        url: window.location.href, // Current page URL
+                    });
+                    console.log("Content shared successfully!");
+                } catch (err) {
+                    console.error("Error sharing content:", err);
+                }
+            } else {
+                alert("Sharing is not supported on this browser.");
+            }
+        });
+    </script>
+</body>
+</html>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wish Page</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+    <div class="wish-container">
+        <h1>{{ occasion }}, {{ name }}!</h1>
+        <p>{{ message }}{{ name}}</p>
+        <div id="countdown"></div>
+    </div>
+    <script src="../static/js/countdown.js"></script>
+</body>
+</html> -->

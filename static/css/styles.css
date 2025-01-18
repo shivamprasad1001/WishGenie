@@ -1,0 +1,87 @@
+/* General reset for margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(45deg, #ff7e5f, #fe7bd7, #ff3603, #ff9d00);
+    background-size: 400% 400%;
+    animation: gradientAnimation 08s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+}
+
+/* Keyframes for gradient animation */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Wish container */
+.wish-container {
+    text-align: center;
+    background-color: #fdfdfd;
+    border-radius: 10px;
+    padding: 40px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Add hover effect */
+.wish-container:hover {
+    transform: translateY(-5px);
+}
+
+/* Heading styles */
+h1 {
+    font-size: 2.5rem;
+    color: #4a90e2;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* Message paragraph */
+.message {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Countdown timer */
+#countdown {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e94e77;
+    margin-top: 20px;
+}
+.share-btn {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.share-btn:hover {
+    background-color: #45a049; /* Darker Green */
+}
