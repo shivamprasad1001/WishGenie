@@ -28,12 +28,9 @@
    ```bash
    cd WishGenie
    ```
-2. Install required Python libraries:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Set up your MySQL database and configure it in the `db_config.py` file.
-4. Run the app:
+
+2. Set up your MySQL database and configure it in the `db_config.py` file.
+3. Run the app:
    ```bash
    python app.py
    ```
